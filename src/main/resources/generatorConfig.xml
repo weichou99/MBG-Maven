@@ -85,6 +85,12 @@
     <table schema="mpclmuser" tableName="REGIONS" domainObjectName="Region">
     	<columnOverride column="REGION_ID" javaType="java.lang.Long"></columnOverride>
     </table>
+	
+	<!--
+	id欄位因為大都用number，所以統一固定為long。
+	跟金額，計算有關的就用BigDecimal。
+
+	-->
 
   </context>
 </generatorConfiguration>
