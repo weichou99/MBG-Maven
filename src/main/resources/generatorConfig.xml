@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+  <!-- 指定jdbc driver的位置 -->
+  <classPathEntry location="C:/jdbc/ojdbc14.jar" />
+
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+
+    <commentGenerator>
+       <!-- true 不要產生註解。 -->
+       <property name="suppressAllComments" value="true" />
+	   <!-- true 不要在註解裡產生timestamp。 -->
+       <property name="suppressDate" value="true" />
+    </commentGenerator>
+
+	<!-- DB連線設定。 -->
+    <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+        connectionURL="jdbc:oracle:thin:@localhost:1521:xe"
+        userId="mpclmuser"
+        password="mpclmuser">
+    </jdbcConnection>
+
+    <!-- DB數字相位的對應。true 數字欄位都對應成BigDecimal，false MyBatis自動判斷。 -->
+<!--    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver> -->
+
+	<!-- 產生 model object。targetPackage輸出的package。targetProject輸出的目錄。 -->
+    <javaModelGenerator targetPackage="model" targetProject="MAVEN">
+    </javaModelGenerator>
+
+	<!-- 產生 sqlMap檔(MyBatis Mapper XML設定檔)。targetPackage輸出的package。targetProject輸出的目錄。 -->
+    <sqlMapGenerator targetPackage="xml"  targetProject="MAVEN">
+    </sqlMapGenerator>
+
+	<!-- 產生 mapper interface檔。targetPackage輸出的package。targetProject輸出的目錄。 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="mapper"  targetProject="MAVEN">
+    </javaClientGenerator>
+
+	<!-- table element, 設定要產生的檔案的來源db table。 -->
+	<!-- schema, DB schema。 -->
+	<!-- tableName, Table的名稱。 -->
+	<!-- domainObjectName, Model Object的名稱。 -->
+	<!-- enableInsert, 是否要產生 insert 的 method。 -->
+	<!-- enableUpdateByExample, 是否要產生 updateByExample 的 method。 -->
+	<!-- enableUpdateByPrimaryKey, 是否要產生 updateByPrimaryKey 的 method。 -->
+	<!-- enableDeleteByExample, 是否要產生 deleteByExample 的 method。 -->
+	<!-- enableDeleteByPrimaryKey, 是否要產生 deleteByPrimaryKey 的 method。 -->
+    <table schema="mpclmuser" tableName="DEPARTMENTS" domainObjectName="Departments">
+		<!-- PK欄位的設定。 -->
+		<generatedKey column="DEPARTMENT_ID" sqlStatement="select DEPARTMENTS_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+    </table>
+    <table schema="V141" tableName="BUSINESS_PLAN" domainObjectName="BusinessPlan"
+		enableInsert="false" enableUpdateByExample="false"
+		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
+		enableDeleteByPrimaryKey="false">
+		<!-- PK欄位的設定。 -->
+		<generatedKey column="BUSINESS_PLAN_INDEX" sqlStatement="select BUSINESS_PLAN_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+    </table>
+	<table schema="V141" tableName="BUSINESS_SUB_PLAN" domainObjectName="BusinessSubPlan"
+		enableInsert="false" enableUpdateByExample="false"
+		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
+		enableDeleteByPrimaryKey="false">
+		<generatedKey column="BUSINESS_SUB_PLAN_INDEX" sqlStatement="select BUSINESS_SUB_PLAN_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+    </table>
+	<table schema="V141" tableName="CATEGORY" domainObjectName="Category"
+		enableInsert="false" enableUpdateByExample="false"
+		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
+		enableDeleteByPrimaryKey="false">
+		<generatedKey column="CATEGORY_INDEX" sqlStatement="select CATEGORY_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+    </table>
+	<table schema="V141" tableName="CUSTOMER" domainObjectName="Customer"
+		enableInsert="false" enableUpdateByExample="false"
+		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
+		enableDeleteByPrimaryKey="false">
+		<generatedKey column="CUSTOMER_INDEX" sqlStatement="select CUSTOMER_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+		<!-- 欄位的type設定。 -->
+		<columnOverride column="CLOSE_ACCOUNT_DATE" javaType="java.lang.Integer"></columnOverride>
+		<columnOverride column="REMITTANCE_DATE" javaType="java.lang.Integer"></columnOverride>
+    </table>
+	<table schema="V141" tableName="ITEM" domainObjectName="Item"
+		enableInsert="false" enableUpdateByExample="false"
+		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
+		enableDeleteByPrimaryKey="false">
+		<generatedKey column="ITEM_INDEX" sqlStatement="select ITEM_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+		<columnOverride column="ITEM_ON_MP_FLAG" javaType="java.lang.Integer"></columnOverride>
+		<columnOverride column="UNIT_PER_SELL_PACK" javaType="java.lang.Integer"></columnOverride>
+    </table>
+	<table schema="V141" tableName="EMPLOYEE" domainObjectName="Employee"
+		enableInsert="false" enableUpdateByExample="false"
+		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
+		enableDeleteByPrimaryKey="false">
+	</table>
+	<table schema="V141" tableName="DEPARTMENT" domainObjectName="Department"
+		enableInsert="false" enableUpdateByExample="false"
+		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
+		enableDeleteByPrimaryKey="false">
+		<generatedKey column="DEPARTMENT_INDEX" sqlStatement="select DEPARTMENT_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+    </table>
+
+  </context>
+</generatorConfiguration>
