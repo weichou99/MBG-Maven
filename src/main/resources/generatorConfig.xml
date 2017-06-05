@@ -50,56 +50,40 @@
 	<!-- enableUpdateByPrimaryKey, 是否要產生 updateByPrimaryKey 的 method。 -->
 	<!-- enableDeleteByExample, 是否要產生 deleteByExample 的 method。 -->
 	<!-- enableDeleteByPrimaryKey, 是否要產生 deleteByPrimaryKey 的 method。 -->
-    <table schema="mpclmuser" tableName="DEPARTMENTS" domainObjectName="Departments">
+    <table schema="mpclmuser" tableName="DEPARTMENTS" domainObjectName="Department">
 		<!-- PK欄位的設定。 -->
 		<generatedKey column="DEPARTMENT_ID" sqlStatement="select DEPARTMENTS_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+
+    	<columnOverride column="DEPARTMENT_ID" javaType="java.lang.Long"></columnOverride>
+    	<columnOverride column="MANAGER_ID" javaType="java.lang.Long"></columnOverride>
+    	<columnOverride column="LOCATION_ID" javaType="java.lang.Long"></columnOverride>
     </table>
-    <table schema="V141" tableName="BUSINESS_PLAN" domainObjectName="BusinessPlan"
-		enableInsert="false" enableUpdateByExample="false"
-		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
-		enableDeleteByPrimaryKey="false">
+    <table schema="mpclmuser" tableName="EMPLOYEES" domainObjectName="Employee">
 		<!-- PK欄位的設定。 -->
-		<generatedKey column="BUSINESS_PLAN_INDEX" sqlStatement="select BUSINESS_PLAN_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+		<generatedKey column="EMPLOYEE_ID" sqlStatement="select EMPLOYEES_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+
+    	<columnOverride column="EMPLOYEE_ID" javaType="java.lang.Long"></columnOverride>
+    	<columnOverride column="SALARY" javaType="java.math.BigDecimal"></columnOverride>
+    	<columnOverride column="COMMISSION_PCT" javaType="java.math.BigDecimal"></columnOverride>
+    	<columnOverride column="MANAGER_ID" javaType="java.lang.Long"></columnOverride>
+    	<columnOverride column="DEPARTMENT_ID" javaType="java.lang.Long"></columnOverride>
     </table>
-	<table schema="V141" tableName="BUSINESS_SUB_PLAN" domainObjectName="BusinessSubPlan"
-		enableInsert="false" enableUpdateByExample="false"
-		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
-		enableDeleteByPrimaryKey="false">
-		<generatedKey column="BUSINESS_SUB_PLAN_INDEX" sqlStatement="select BUSINESS_SUB_PLAN_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+    <table schema="mpclmuser" tableName="JOB_HISTORY" domainObjectName="JobHistory">
+    	<columnOverride column="EMPLOYEE_ID" javaType="java.lang.Long"></columnOverride>
+    	<columnOverride column="DEPARTMENT_ID" javaType="java.lang.Long"></columnOverride>
     </table>
-	<table schema="V141" tableName="CATEGORY" domainObjectName="Category"
-		enableInsert="false" enableUpdateByExample="false"
-		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
-		enableDeleteByPrimaryKey="false">
-		<generatedKey column="CATEGORY_INDEX" sqlStatement="select CATEGORY_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+    <table schema="mpclmuser" tableName="JOBS" domainObjectName="Job">
+    	<columnOverride column="MIN_SALARY" javaType="java.math.BigDecimal"></columnOverride>
+    	<columnOverride column="MAX_SALARY" javaType="java.math.BigDecimal"></columnOverride>
     </table>
-	<table schema="V141" tableName="CUSTOMER" domainObjectName="Customer"
-		enableInsert="false" enableUpdateByExample="false"
-		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
-		enableDeleteByPrimaryKey="false">
-		<generatedKey column="CUSTOMER_INDEX" sqlStatement="select CUSTOMER_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
-		<!-- 欄位的type設定。 -->
-		<columnOverride column="CLOSE_ACCOUNT_DATE" javaType="java.lang.Integer"></columnOverride>
-		<columnOverride column="REMITTANCE_DATE" javaType="java.lang.Integer"></columnOverride>
+    <table schema="mpclmuser" tableName="LOCATIONS" domainObjectName="Location">
+		<!-- PK欄位的設定。 -->
+		<generatedKey column="LOCATION_ID" sqlStatement="select LOCATIONS_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+
+    	<columnOverride column="LOCATION_ID" javaType="java.lang.Long"></columnOverride>
     </table>
-	<table schema="V141" tableName="ITEM" domainObjectName="Item"
-		enableInsert="false" enableUpdateByExample="false"
-		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
-		enableDeleteByPrimaryKey="false">
-		<generatedKey column="ITEM_INDEX" sqlStatement="select ITEM_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
-		<columnOverride column="ITEM_ON_MP_FLAG" javaType="java.lang.Integer"></columnOverride>
-		<columnOverride column="UNIT_PER_SELL_PACK" javaType="java.lang.Integer"></columnOverride>
-    </table>
-	<table schema="V141" tableName="EMPLOYEE" domainObjectName="Employee"
-		enableInsert="false" enableUpdateByExample="false"
-		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
-		enableDeleteByPrimaryKey="false">
-	</table>
-	<table schema="V141" tableName="DEPARTMENT" domainObjectName="Department"
-		enableInsert="false" enableUpdateByExample="false"
-		enableUpdateByPrimaryKey="false" enableDeleteByExample="false"
-		enableDeleteByPrimaryKey="false">
-		<generatedKey column="DEPARTMENT_INDEX" sqlStatement="select DEPARTMENT_SEQ.NEXTVAL from dual" identity="false" type="pre"></generatedKey>
+    <table schema="mpclmuser" tableName="REGIONS" domainObjectName="Region">
+    	<columnOverride column="REGION_ID" javaType="java.lang.Long"></columnOverride>
     </table>
 
   </context>
